@@ -1,10 +1,22 @@
 # On the impact of sameAs on schema matching
-This repository contains all Python scripts and data necessary to replicate our experiments of our paper "On the impact of sameAs on schema matching".
+This repository contains all the Python scripts and data necessary to replicate our experiments of our paper "On the impact of sameAs on schema matching".
 
-With these experiments we aim at answering three research questions:
+With these experiments we aim at answering the two following research questions:
 
-1. Does the inclusion of instance-level interlinks improves instance-based schema alignments?
-    
-2. Does the inclusion of instance-level interlinks impact instance-based schema alignments differently when only the concepts' explicit members are considered? I.e. without considering the transitive subsumption relation. 
-    
-3. Is there a relation between the quality of the instance-level interlinks and the schema alignments' quality?
+Q1. Does the inclusion of instance-level interlinks enhance instance-based schema alignments? (w and w/o considering the transitive closure of the class subsumption relation.)
+
+Q2. Is there a correlation between the quality of the instance-level interlinks and the quality of the resulting schema alignments?
+
+A number of external resources are necessary for replicating these experiments:
+
+> 1. Download the [LOD-a-lot dataset](http://lod-a-lot.lod.labs.vu.nl).
+
+This data set contains 28.3 billion triples collected from the 2015 LOD Laundromat crawl of over 650K data documents from the Web. It is exposed in an HDT file that is 524GB in size (including its additional index), and is publicly accessible via an [LDF interface](http://krr.triply.cc/krr/lod-a-lot). 
+
+> 2. Download the [Equivalence Classes](https://zenodo.org/record/3227976).
+
+This data set of equivalence classes results from the closure of all 558 million owl:sameAs links in the [sameAs.cc](http://sameas.cc) data set. This data set also contains two additional set of equivalence classes resulted (a) after discarding all owl:sameAs links with an error degree >0.99, and (b) after discarding all owl:sameAs links with an error degree >0.4.
+
+> 3. Install the [HDT Python library](https://pypi.org/project/hdt/)
+
+This library allows to read and query HDT document with ease in Python
